@@ -26,13 +26,9 @@ php artisan route:clear
 php artisan view:clear
 php artisan cache:clear
 
-# Ejecutar migraciones
-echo "📊 Ejecutando migraciones..."
-php artisan migrate --force
-
-# Ejecutar seeders
-echo "🌱 Ejecutando seeders..."
-php artisan db:seed --force
+# Ejecutar migrate:fresh con seeders (borra todo y recrea limpio)
+echo "🗑️ Eliminando tablas existentes y recreando con seeders..."
+php artisan migrate:fresh --seed --force
 
 # Crear enlace simbólico para storage
 echo "🔗 Creando enlace simbólico para storage..."
