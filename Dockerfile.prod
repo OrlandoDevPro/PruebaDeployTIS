@@ -1,7 +1,7 @@
 # Dockerfile para PRODUCCIÓN
 FROM php:8.1-fpm
 
-# Instalar dependencias del sistema
+# Instalar dependencias del sistema + NGINX
 RUN apt-get update && apt-get install -y \
     git \
     curl \
@@ -14,6 +14,8 @@ RUN apt-get update && apt-get install -y \
     nodejs \
     npm \
     netcat-openbsd \
+    nginx \
+    supervisor \
     && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
@@ -31,7 +33,7 @@ COPY composer.json composer.lock package.json package-lock.json ./
 RUN composer install --optimize-autoloader --no-dev --no-interaction --no-scripts
 
 # Instalar dependencias Node.js
-RUN npm install 
+RUN npm install --production
 
 # Copiar TODO el código de la aplicación
 COPY . .
@@ -41,6 +43,11 @@ RUN composer run-script post-autoload-dump
 
 # Construir assets para producción
 RUN npm run production
+
+# Configurar Nginx
+COPY docker/nginx/default.conf /etc/nginx/sites-available/default
+RUN rm -f /etc/nginx/sites-enabled/default \
+    && ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 
 # Crear directorios necesarios y establecer permisos
 RUN mkdir -p /var/www/storage/framework/{cache,sessions,views} \
@@ -60,8 +67,7 @@ HEALTHCHECK --interval=15s --timeout=5s --start-period=60s --retries=3 \
 CMD curl -f http://localhost:8080/health || exit 1
 
 # Exponer puerto
-EXPOSE 8080
+EXPOSE ${PORT:-8080}
 
 # Usar entrypoint personalizado
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
-CMD ["/bin/sh", "-c", "/usr/local/bin/entrypoint.sh"]
