@@ -1,0 +1,722 @@
+:root {
+    /* Brand Colors - Blues */
+    --blue-900: #021521;  /* antes --terc */
+    --blue-800: #002A4C;  /* antes --pri */
+    --blue-700: #00477a;  /* antes --sec */
+    --blue-600: #0081df;  /* antes --for */
+    --blue-500: #20bbff;  /* antes --btn-sec */
+    --blue-400: #6dd2ff;  /* antes --five */
+    --blue-300: #8cdbff;  /* nuevo */
+    --blue-200: #b3e7ff;  /* nuevo */
+    --blue-100: #e6f7ff;  /* nuevo */
+
+    /* Brand Colors - Burgundy */
+    --burgundy-900: #4a020e;  /* nuevo */
+    --burgundy-700: #96061e;  /* antes --guindo */
+    --burgundy-500: #cc0828;  /* nuevo */
+    --burgundy-300: #ff1f44;  /* nuevo */
+    --burgundy-100: #ffd7dd;  /* nuevo */
+
+    /* Navy */
+    --navy-900: #01233f;  /* antes --azul */
+    --navy-700: #023561;  /* nuevo */
+    --navy-500: #034783;  /* nuevo */
+    --navy-300: #0469c5;  /* nuevo */
+    --navy-100: #e6f0f9;  /* nuevo */
+
+    /* Surface Colors - Light Mode */
+    --surface-primary: #ffffff;    /* antes --bg */
+    --surface-secondary: #f8f8f8;  /* antes --bg1 */
+    --surface-tertiary: #ffffff;   /* antes --bg2 */
+    --surface-card: #ffffff;       /* antes --bg3 */
+    
+    /* Typography - Light Mode */
+    --text-primary: #333333;       /* antes --txt */
+    --text-secondary: #636363;     /* antes --text1 */
+    --text-light: #ffffff;         /* antes --p-pri */
+    --text-dark: #000000;          /* antes --p-sec */
+
+    /* Interactive Elements */
+    --button-primary: var(--blue-900);
+    --button-secondary: var(--blue-500);
+    --button-text: var(--surface-primary);
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(to right, var(--blue-800), var(--blue-600));
+    --gradient-secondary: linear-gradient(to right, var(--burgundy-700), var(--navy-900));
+    --gradient-accent: linear-gradient(to right, var(--blue-800), var(--blue-600), var(--blue-400));
+}
+
+/* Dark Theme Colors */
+:root.modo-oscuro {
+    /* Surface Colors - Dark Mode */
+    /*--surface-primary: #272727;      /* antes --bg dark */
+    --surface-primary: #1a1f2e; /*--form-bg: #1a1f2e;  */    
+    --surface-secondary: #151b23;    /* antes --bg1 dark */
+    /*--surface-secondary: #151b23;     antes --bg1 dark */
+    --surface-tertiary: #151b23;     /* antes --bg2 dark */
+    --surface-card: #262c33; /* antes --bg3 dark */
+    /*--surface-card: rgb(48, 48, 58);  antes --bg3 dark */
+
+    /* Typography - Dark Mode */
+    --text-primary: #e0e0e0;    /* antes --txt dark */
+    --text-secondary: #9e9d9d;  /* antes --text1 dark */
+    --text-light: #ffffff;      /* antes --p-pri dark */
+    --text-dark: #c5c2c2;      /* antes --p-sec dark */
+
+    /* Interactive Elements - Dark Mode */
+    --button-primary: var(--blue-400);
+    --button-secondary: var(--blue-600);
+    
+    /* Gradients - Dark Mode */
+    --gradient-primary: linear-gradient(to right, var(--blue-600), var(--blue-400));
+    --gradient-secondary: linear-gradient(to right, var(--burgundy-500), var(--navy-500));
+    --gradient-accent: linear-gradient(to right, var(--blue-600), var(--blue-400), var(--blue-300));
+}
+/* Estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: var(--surface-primary);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    padding-top: 60px; /* Añadir padding para compensar la barra fija */
+}
+/* Dark theme colors */
+
+
+/* Contenedor principal */
+.contenedor {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    background: radial-gradient(var(--burgundy-700) 9%, 55%, var(--navy-700));
+    border-radius: 20px;
+    overflow: hidden;
+    color: white;
+    margin-top: 10px;
+    min-height: 280px; /* antes 350px */
+    padding-top: 15px;
+}
+.hero-content {
+    display: flex;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero-text {
+    flex: 1;
+    max-width: 50%;
+    z-index: 2;
+    text-align: center;
+}
+
+.hero-text h1 {
+    font-size: 32px;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+.hero-text .quote {
+    color: var(--text-light);
+    font-style: italic;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.hero-image {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    max-width: 100%;
+    padding: 0.8rem;
+    padding-right: 2rem;
+    transition: all 0.3s ease;
+    margin-left: auto;
+}
+
+
+.hero-image img {
+    max-width: 70%; /* antes 100% */
+    height: auto;
+    transition: transform 0.3s ease;
+    margin-left: auto;
+}
+
+/* Hero Buttons */
+.hero-buttons {
+    margin-top: 1.5rem;
+}
+
+.register-hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--blue-800);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 129, 223, 0.3);
+}
+
+.register-hero-btn:hover {
+    background: var(--blue-700);
+    transform: translateY(-2px);
+}
+
+/* Wave Elements */
+.wave-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    line-height: 0;
+}
+.wave-path {
+    fill: var(--surface-primary);
+    transition: fill 0.3s ease;
+}
+
+.modo-oscuro .wave-path {
+    fill: var(--surface-primary);
+}
+
+/* Main Sections */
+.que-son-olmpiadas,
+.about-olympiad,
+.how-to-participate {
+    padding: 7px 15px;
+    border-radius: 12px;
+    margin-top: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.que-son-olmpiadas h2,
+.about-olympiad h2,
+.how-to-participate h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: white;
+    font-weight: 700;
+}
+.que-son-olmpiadas {
+    background-color: var(--blue-800);
+}
+.que-son-olmpiadas::before{
+    content: '';
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 5px;
+       background: linear-gradient(to right, var(--burgundy-700));
+   }
+/*Que son las olimpiadas*/
+.que-son-olmpiadas p {
+    font-size: 16px;
+    margin-bottom: 30px;
+    color: var(--text-light);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+/* Sección: Áreas de Competición */
+.about-olympiad{
+    background-color: var(--surface-tertiary);
+}
+.about-olympiad:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, var(--blue-800), var(--blue-600), var(--blue-400));
+}
+
+.about-olympiad h2 {
+    color: var(--blue-600);
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+.about-olympiad h2::after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 80px;
+    margin: 10px auto 0;
+    background: linear-gradient(to right, var(--blue-800), var(--blue-700));
+    border-radius: 3px;
+}
+
+.areas-container {
+    position: relative;
+    padding: 0 20px;
+}
+
+.areas-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    gap: 1rem;
+    padding: 1rem 0;
+    margin-bottom: 10px;
+}
+
+.areas-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.areas-navigation {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.next-btn, .nav-btn, .scroll-btn {
+    color: white;
+    border: none;
+    margin: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.next-btn {
+    background: linear-gradient(45deg, var(--blue-800), var(--blue-700));
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 1rem;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(0, 42, 76, 0.2);
+}
+
+.next-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 42, 76, 0.3);
+    background: linear-gradient(45deg, var(--blue-700), var(--blue-600));
+}
+
+.next-btn:active {
+    transform: translateY(0);
+}
+
+.next-btn i {
+    transition: transform 0.3s ease;
+}
+
+.next-btn:hover i {
+    transform: translateX(5px);
+}
+
+.nav-btn, .scroll-btn {
+    background: var(--blue-800);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nav-btn:hover, .scroll-btn:hover {
+    background: var(--blue-700);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.nav-btn:active, .scroll-btn:active {
+    transform: translateY(0);
+}
+
+.nav-btn i, .scroll-btn i {
+    font-size: 1.2rem;
+}
+
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 35px;
+    height: 35px;
+    z-index: 2;
+}
+
+.scroll-btn:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.scroll-left {
+    left: 0;
+}
+
+.scroll-right {
+    right: 0;
+}
+
+.area-card {
+    flex: 0 0 auto;
+    width: 150px;
+    background: var(--surface-card);
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.area-card:hover {
+    transform: translateY(-5px);
+}
+
+.area-icon {
+    background: var(--blue-600);
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0.8rem;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+}
+
+.area-icon i {
+    color: white;
+    font-size: 1.2rem;
+    transform: rotate(-45deg);
+}
+
+.area-card:hover .area-icon {
+    transform: rotate(90deg);
+}
+
+.area-card h3 {
+    color: var(--blue-600);
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+}
+
+/* Como participar */
+.how-to-participate {
+    background-color: var(--surface-tertiary);
+}
+
+.how-to-participate:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, var(--blue-800), var(--blue-600), var(--blue-400));
+}
+
+.how-to-participate h2 {
+    color: var(--blue-600);
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.how-to-participate h2::after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 80px;
+    margin: 10px auto 0;
+    background: linear-gradient(to right, var(--blue-800), var(--blue-700));
+    border-radius: 3px;
+}
+
+.participation-steps {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 20px;
+    list-style: none;
+    padding: 10px;
+    margin: 10px 0;
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE y Edge */
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    padding-bottom: 15px;
+    position: relative;
+}
+
+/* Ocultar scrollbar en navegadores basados en WebKit */
+.participation-steps::-webkit-scrollbar {
+    display: none;
+}
+
+.participation-steps li {
+    flex: 0 0 auto;
+    min-width: 200px;
+    max-width: 220px;
+    padding: 0 5px;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+.participation-steps li i {
+    background-color: var(--surface-tertiary);
+    color: var(--blue-600);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 129, 223, 0.15);
+    font-size: 1rem;
+    border: 2px solid transparent;
+    background-image: linear-gradient(var(--surface-tertiary), var(--surface-tertiary)), 
+                     linear-gradient(to right, var(--blue-400), var(--blue-400));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+.participation-steps li:hover i {
+    transform: translateY(-5px) scale(1.05);
+    background: var(--blue-500);
+    color: white;
+    box-shadow: 0 8px 20px rgba(0, 129, 223, 0.3);
+}
+.participation-steps li p {
+   color: var(--text-primary);
+}
+
+.start-registration-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--blue-500);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.start-registration-btn:hover {
+    background-color: var(--blue-600);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 129, 223, 0.3);
+}
+
+/* RESPONSIVE ADAPTATIONS */
+/* RESPONSIVE ADAPTATIONS */
+/* Large Devices (992px and below) */
+@media (max-width: 992px) {
+    /* Hero Section */
+    .hero-content {
+        padding: 30px;
+    }
+    
+    .hero-text {
+        max-width: 60%;
+    }
+    
+    .hero-image {
+        width: 40%;
+    }
+
+    /* Areas Section */
+    .area-card {
+        width: 140px;
+    }
+
+    /* Participation Steps */
+    .participation-steps li {
+        min-width: 180px;
+    }
+}
+
+/* Medium Devices (768px and below) */
+@media (max-width: 768px) {
+    .hero {
+        min-height: 250px;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        padding: 10px;
+        position: relative;
+    }
+
+    .hero-text {
+        max-width: 100%;
+        padding-top: 45px;
+    }
+
+    .hero-image {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: auto;
+        padding: 0;
+        opacity: 0.5; /* 👈 Ajusta el nivel (0.0 a 1.0) */
+    }
+
+    .hero-image img {
+        max-width: 70px;
+        height: auto;
+        transform: rotate(0deg);
+    }
+
+    .hero-text h1 {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+
+    .hero-text .quote {
+        font-size: 14px;
+        padding: 0 15px;
+        margin-bottom: 25px;
+    }
+
+    .register-hero-btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        min-height: 220px;
+    }
+
+    .hero-image img {
+        max-width: 60px;
+    }
+
+    .hero-text h1 {
+        font-size: 24px;
+    }
+
+    .hero-text .quote {
+        font-size: 13px;
+        padding: 0 10px;
+    }
+}
+
+/* Small Devices (480px and below) */
+@media (max-width: 480px) {
+    /* Hero Section */
+    .hero-text h1 {
+        font-size: 24px;
+    }
+    
+    .hero-text .quote {
+        font-size: 13px;
+    }
+    
+    /* Areas Section */
+    .area-card {
+        width: 110px;
+        padding: 8px;
+    }
+
+    .area-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .area-card h3 {
+        font-size: 0.9rem;
+    }
+
+    /* Participation Steps */
+    .participation-steps {
+        gap: 5px;
+    }
+
+    .participation-steps li {
+        min-width: 140px;
+        max-width: 160px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Extra Small Devices (380px and below) */
+@media (max-width: 380px) {
+    /* Hero Section */
+    .hero-content {
+        flex-direction: column;
+    }
+
+    .hero-text {
+        max-width: 100%;
+    }  
+
+    .hero-image {
+        width: 100%;
+    }
+
+    .hero-image img {
+        max-width: 180px;
+        margin: 0 auto;
+    }
+
+    /* Areas Section */
+    .area-card {
+        width: 100px;
+        padding: 6px;
+    }
+
+    .area-icon {
+        width: 35px;
+        height: 35px;
+        margin-bottom: 0.5rem;
+    }
+
+    .area-card h3 {
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Participation Steps */
+    .participation-steps li {
+        min-width: 130px;
+        max-width: 150px;
+    }
+}

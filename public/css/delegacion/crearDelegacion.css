@@ -1,0 +1,256 @@
+/* Estilos para el formulario de creación de delegaciones */
+:root {
+    /* Colores principales - Paleta corporativa */
+    --primary-color: #0086CE; /* Azul principal */
+    --primary-dark: #002A4C; /* Azul oscuro */
+    --primary-light: #20BBFF; /* Azul claro */
+    --secondary-color: #B30D1F; /* Rojo */
+    --secondary-dark: #631A33; /* Burdeos */
+    --accent-color: #FF9E1B; /* Naranja complementario */
+}
+
+.crear-delegacion-container {
+    background-color: var(--fondo-claro);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    overflow: hidden;
+    width: calc(100% - 40px);
+    color: var(--texto-principal);
+}
+
+.crear-delegacion-header {
+    background-color: var(--fondo-secundario-claro);
+    padding: 10px 15px;
+    border-bottom: 1px solid var(--input-borde);
+    border-bottom-color: var(--input-borde);
+}
+
+.crear-delegacion-header h1 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--texto-principal);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.crear-delegacion-header h1 i {
+    color: var(--color-acento);
+}
+
+.crear-delegacion-form {
+    padding: 10px 15px;
+}
+
+.form-section {
+    margin-bottom: 15px;
+}
+
+.form-section-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-acento);
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--input-borde);
+    border-bottom-color: var(--input-borde);
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 2px;
+    font-weight: 500;
+    color: var(--etiqueta-texto);
+    font-size: 0.65rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 4px 6px;
+    border: 1px solid var(--input-borde);
+    border-radius: 4px;
+    font-size: 0.65rem;
+    transition: border-color 0.3s;
+    background-color: var(--input-fondo);
+    color: var(--texto-principal);
+}
+
+.form-control:focus {
+    border-color: var(--input-borde-enfocado);
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-sombra);
+}
+
+.form-control.is-invalid {
+    border-color: var(--color-peligro);
+}
+
+.invalid-feedback {
+    color: var(--color-peligro);
+}
+
+.required-label::after {
+    color: var(--color-peligro);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid var(--input-borde);
+}
+
+.btn {
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.7rem;
+}
+
+.btn-primary {
+    background-color: var(--color-acento);
+    color: var(--texto-estatico);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-acento-hover);
+}
+
+.btn-success {
+    background-color: var(--color-acento);
+    color: var(--texto-estatico);
+}
+
+.btn-success:hover {
+    background-color: var(--color-acento-hover);
+}
+
+.btn-secondary {
+    background-color: var(--texto-secundario);
+    color: var(--texto-estatico);
+}
+
+.btn-secondary:hover {
+    background-color: var(--texto-suave);
+}
+
+.btn-danger {
+    background-color: var(--color-peligro);
+    color: var(--texto-principal);
+}
+
+.btn-danger:hover {
+    background-color: var(--color-peligro);
+    filter: brightness(90%);
+}
+
+/* Estados de validación */
+.is-invalid {
+    border-color: var(--color-peligro) !important;
+}
+
+.invalid-feedback {
+    color: var(--color-peligro);
+}
+
+/* Modo oscuro específico */
+.modo-oscuro .crear-delegacion-form {
+    background-color: var(--fondo-claro);
+}
+
+.modo-oscuro .form-control {
+    background-color: var(--input-fondo);
+    border-color: var(--input-borde);
+    color: var(--texto-principal);
+}
+
+.modo-oscuro .form-control:focus {
+    border-color: var(--input-borde-enfocado);
+    box-shadow: 0 0 0 2px var(--color-sombra);
+}
+/*ESTILOS DE LOS DOS BOTONES EN EDITAR*/
+
+/* Responsive styles */
+@media (max-width: 992px) {
+    .crear-delegacion-container {
+        margin: 15px;
+        width: calc(100% - 30px);
+    }
+    
+    .form-row {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .crear-delegacion-container {
+        margin: 10px;
+        width: calc(100% - 20px);
+    }
+    
+    .crear-delegacion-header,
+    .crear-delegacion-form {
+        padding: 15px;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .form-group {
+        width: 100%;
+    }
+    
+    .form-actions {
+        flex-direction: column-reverse;
+        gap: 10px;
+    }
+    
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .crear-delegacion-container {
+        margin: 5px;
+        width: calc(100% - 10px);
+    }
+    
+    .crear-delegacion-header,
+    .crear-delegacion-form {
+        padding: 10px;
+    }
+    
+    .crear-delegacion-header h1 {
+        font-size: 20px;
+    }
+    
+    .form-section-title {
+        font-size: 16px;
+    }
+}

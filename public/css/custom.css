@@ -1,0 +1,266 @@
+/* ======================================
+   Oh! Sansi - CSS
+   Versión: 1.0
+   ====================================== */
+
+/* ======= VARIABLES ======= */
+:root {
+    /* Colores principales - Paleta corporativa */
+    --primary-color: var(--azul-oscuro-estatico);
+    --secondary-color: var(--azul-medio-estatico);
+    --text-color: var(--texto-principal);
+    --border-color: var(--input-borde);
+    --hover-color: var(--div-claro);
+    --button-text: var(--fondo-claro);
+    --danger-color: var(--color-peligro);
+
+    /* Colores complementarios */
+    --complementary-light: var(--fondo-secundario-claro);
+    --complementary-dark: var(--fondo-claro);
+    --complementary-warm: var(--div-claro);
+
+    /* Colores neutros */
+    --dark-color: var(--texto-principal);
+    --light-color: var(--fondo-secundario-claro);
+    --gray-color: var(--texto-suave);
+    --gray-light: var(--texto-deshabilitado);
+    --gray-dark: var(--texto-secundario);
+
+    /* Colores de estado */
+    --success-color: var(--color-exito);
+    --warning-color: var(--color-advertencia);
+    --info-color: var(--color-informacion);
+
+    /* Tipografía */
+    --font-primary: 'Nunito', sans-serif;
+    --font-size-xs: 0.65rem;
+    /* 10.4px */
+    --font-size-sm: 0.7125rem;
+    /* 11.4px */
+    --font-size-base: 0.75rem;
+    /* 12px */
+    --font-size-md: 0.8125rem;
+    /* 13px */
+    --font-size-lg: 0.875rem;
+    /* 14px */
+    --font-size-xl: 1rem;
+    /* 16px */
+    --font-size-2xl: 1.125rem;
+    /* 18px */
+
+    /* Pesos de fuente */
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* Altura de línea */
+    --line-height-tight: 1.2;
+    --line-height-normal: 1.4;
+    --line-height-relaxed: 1.6;
+
+    /* Espaciado */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+
+    /* Bordes y sombras */
+    --border-radius: 4px;
+    --border-radius-lg: 8px;
+    --box-shadow: 0 2px 5px var(--color-sombra);
+    --box-shadow-lg: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+    /* Transiciones */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+
+    /* Dimensiones */
+    --sidebar-width: 180px;
+    /* Reducido de 210px */
+    --sidebar-collapsed-width: 50px;
+    /* Reducido de 60px */
+    --right-sidebar-width: 220px;
+    /* Reducido de 300px */
+    --header-height: 45px;
+    /* Reducido de 60px */
+
+    /* Espaciado reducido para navegación */
+    --nav-padding-x: 12px;
+    /* Nuevo */
+    --nav-padding-y: 6px;
+    /* Nuevo */
+    --nav-item-gap: 8px;
+    /* Nuevo */
+
+    /*Colores estaticos*/
+    --color-azul-estatico: #0a2a4d;
+}
+
+:root {
+    /* 🎯 Colores base */
+    --azul-oscuro-estatico: #0a2a4d;
+    --azul-medio-estatico: #1e5aa5;
+
+    /* 🌞 Modo claro */
+    --fondo-claro: #ffffff;
+    --fondo-secundario-claro: #f5f7fa;
+    --fondo-terciario-claro: #e4eaf1;
+    --fondo-contraste-claro: #dde6f0;
+
+    --div-claro: #f7faff;
+    --div-medio: #dce6f2;
+    --div-oscuro: #c3d2e8;
+
+    --input-fondo: #ffffff;
+    --input-borde: #c0c0c0;
+    --input-borde-enfocado: #1e5aa5;
+    --input-placeholder: #999999;
+    --etiqueta-texto: #2a2a2a;
+
+    --texto-principal: #1a1a1a;
+    --texto-secundario: #4a4a4a;
+    --texto-suave: #777777;
+    --texto-deshabilitado: #aaaaaa;
+    --texto-enlace: #1e5aa5;
+    --texto-enlace-hover: #15427c;
+
+    --color-acento: #1e5aa5;
+    --color-acento-hover: #15427c;
+    --color-exito: #28a745;
+    --color-advertencia: #ffc107;
+    --color-peligro: #dc3545;
+    --color-informacion: #17a2b8;
+
+    --color-sombra: rgba(0, 0, 0, 0.2);
+
+    /*Color estatico*/
+    --color-azul-estatico: #17283a;
+    --texto-estatico: #eaf3ff;
+}
+
+:root.modo-oscuro {
+    --fondo-claro: #0b0f14;
+    /* casi negro, con tinte azul */
+    --fondo-secundario-claro: #121a26;
+    /* gris azulado muy oscuro */
+    --fondo-terciario-claro: #1c2738;
+    /* más visible pero aún oscuro */
+    --fondo-contraste-claro: #233349;
+    /* contraste suave */
+
+    --div-claro: #162030;
+    --div-medio: #213148;
+    --div-oscuro: #2d4060;
+
+    --input-fondo: #0e141d;
+    --input-borde: #3a5b88;
+    --input-borde-enfocado: #5faaff;
+    --input-placeholder: #8ea5c5;
+    --etiqueta-texto: #d9e3f0;
+
+    --texto-principal: #eaf3ff;
+    --texto-secundario: #afc1d8;
+    --texto-suave: #edf0f3;
+    --texto-deshabilitado: #6d7e94;
+    --texto-enlace: #69b7ff;
+    --texto-enlace-hover: #a3d0ff;
+
+    --color-acento: #428ee6;
+    --color-acento-hover: #63a2f0;
+    --color-exito: #48c774;
+    --color-advertencia: #ffd666;
+    --color-peligro: #ff6b6b;
+    --color-informacion: #4bc0c0;
+
+    --color-sombra: rgba(0, 0, 0, 0.6);
+
+    --primary-color: var(--azul-medio-estatico);
+    --secondary-color: var(--color-acento);
+    --text-color: var(--texto-principal);
+    --border-color: var(--input-borde);
+    --hover-color: var(--div-medio);
+    --button-text: var(--fondo-claro);
+
+    /* Actualizar colores complementarios */
+    --complementary-light: var(--fondo-secundario-claro);
+    --complementary-dark: var(--fondo-terciario-claro);
+    --complementary-warm: var(--div-claro);
+
+    /* Actualizar colores neutros */
+    --dark-color: var(--texto-principal);
+    --light-color: var(--fondo-secundario-claro);
+    --gray-color: var(--texto-suave);
+    --gray-light: var(--texto-deshabilitado);
+    --gray-dark: var(--texto-secundario);
+}
+
+
+
+/* ======= RESET Y ESTILOS BASE ======= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    color: var(--dark-color);
+    background-color: var(--fondo-secundario-claro);
+    line-height: var(--line-height-normal);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--texto-enlace);
+}
+
+a:hover {
+    color: var(--texto-enlace-hover);
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+}
+
+input,
+select,
+button {
+    font-size: var(--font-size-base);
+    outline: none;
+}
+
+/* ======= LAYOUT ======= */
+.main-content {
+    display: flex;
+    margin-top: var(--header-height);
+    min-height: calc(100vh - var(--header-height) - 50px);
+    position: relative;
+    background-color: var(--light-color);
+    margin-left: var(--sidebar-width);
+    margin-right: var(--right-sidebar-width);
+}
+/* ======= CONTENIDO PRINCIPAL AREA ======= */
+main {
+    flex: 1;
+    padding: var(--spacing-lg);
+    margin-top: var(--header-height);
+    margin-bottom: 3rem;
+    margin-left: var(--sidebar-width);
+    margin-right: var(--right-sidebar-width);
+    width: calc(100% - var(--sidebar-width) - var(--right-sidebar-width));
+}

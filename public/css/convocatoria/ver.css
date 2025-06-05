@@ -1,0 +1,403 @@
+/* ======= VARIABLES DEL TEMA ======= */
+:root {
+    /* Colores base */
+    --primary-color: #1a365d;
+    --secondary-color: #2c5282;
+    --text-color: #333;
+    --border-color: #e2e8f0;
+    --hover-color: #f7fafc;
+    --button-text: #fff;
+    --success-color: #0ca678;
+    --warning-color: #f59f00;
+    --danger-color: #fa5252;
+    --info-color: #4299e1;
+
+    /* Fondos */
+    --bg-form: #ffffff;
+    --bg-section: #f8fafc;
+    --bg-input: #ffffff;
+    --bg-container: #ffffff;
+    --bg-header: var(--primary-color);
+    --bg-actions: #f8fafc;
+
+    /* Alertas */
+    --alert-info-bg: #e3f2fd;
+    --alert-info-text: #0c63e4;
+    --alert-info-border: #90caf9;
+    --alert-warning-bg: #fff3bf;
+    --alert-warning-text: #8a5d00;
+    --alert-warning-border: #ffe066;
+}
+
+/* Variables modo oscuro */
+:root.modo-oscuro {
+    /* Colores base */
+    --primary-color: #3182ce;
+    --secondary-color: #4299e1;
+    --text-color: #e2e8f0;
+    --border-color: #2d3748;
+    --hover-color: #2d3748;
+    --button-text: #ffffff;
+
+    /* Fondos */
+    --bg-form: #1a202c;
+    --bg-section: #2d3748;
+    --bg-input: #2D3748;
+    --bg-container: #1e293b;
+    --bg-header: #2d3748;
+    --bg-actions: #1e293b;
+
+    /* Alertas */
+    --alert-info-bg: #2c5282;
+    --alert-info-text: #e2e8f0;
+    --alert-info-border: #4299e1;
+    --alert-warning-bg: #744210;
+    --alert-warning-text: #fbd38d;
+    --alert-warning-border: #d69e2e;
+}
+
+/* Variables estáticas */
+:root {
+    --azul-oscuro-estatico: #1a365d;
+}
+
+/* Contenedor principal */
+.convocatoria-detail-container {
+    background-color: var(--bg-form);
+    color: var(--text-color);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+/* Cabecera del detalle */
+.detail-header {
+    background-color: var(--azul-oscuro-estatico);
+    color: var(--button-text);
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.detail-header h1 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* Badge de estado */
+.estado-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background-color: var(--bg-section);
+    color: var(--text-color);
+}
+
+.estado-badge i {
+    font-size: 0.625rem;
+}
+
+.estado-borrador {
+    background-color: #f1f5f9;
+    color: #64748b;
+}
+
+.estado-publicada {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.estado-cancelada {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.estado-finalizado {
+    background-color: #e0f2fe;
+    color: #075985;
+}
+
+/* Botones de acción */
+.action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    background-color: var(--bg-section);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.btn-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+}
+
+.btn-action:hover {
+    opacity: 0.9;
+}
+
+.btn-publish {
+    background-color: var(--success-color);
+}
+
+.btn-cancel {
+    background-color: var(--warning-color);
+}
+
+.btn-delete {
+    background-color: var(--danger-color);
+}
+
+.btn-pdf {
+    background-color: #C53030;
+}
+
+.btn-recover {
+    background-color: var(--info-color);
+}
+
+/* Secciones de detalles */
+.detail-section {
+    background-color: var(--bg-form);
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.section-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Grid de información */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.info-item.full-width {
+    grid-column: 1 / -1;
+}
+
+.info-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #64748b;
+}
+
+.info-value {
+    font-size: 0.975rem;
+    line-height: 1.5;
+}
+
+.description {
+    white-space: pre-line;
+}
+
+/* Áreas y categorías */
+.area-container {
+    background-color: var(--bg-section);
+    border: 1px solid var(--border-color);
+    border-radius: 0.375rem;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.area-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.categorias-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.categoria-item {
+    background-color: var(--bg-container);
+    border: 1px solid var(--border-color);
+    border-radius: 0.375rem;
+    padding: 1rem;
+}
+
+.categoria-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--secondary-color);
+}
+
+/* Precios */
+.precio-info {
+    margin: 0.75rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.precio-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.precio-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.precio-value {
+    font-weight: 600;
+}
+
+/* Grados */
+.grados-list {
+    margin-top: 0.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.grado-badge {
+    display: inline-block;
+    background-color: var(--info-color);
+    color: white;
+    padding: 0.3rem 0.7rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+}
+
+/* Transición suave entre temas */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ======= RESPONSIVE DESIGN ======= */
+
+/* Tablet (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    .convocatoria-detail-container {
+        margin: 1rem;
+        border-radius: 0.375rem;
+    }
+
+    .detail-header {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 1rem;
+        align-items: flex-start;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+
+    .btn-action {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .detail-section {
+        padding: 1rem;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .categorias-list {
+        grid-template-columns: 1fr;
+    }
+
+    .area-container {
+        padding: 1rem;
+    }
+}
+
+/* Móvil (max-width: 576px) */
+@media screen and (max-width: 576px) {
+    .detail-header h1 {
+        font-size: 1.125rem;
+    }
+
+    .section-title {
+        font-size: 1rem;
+    }
+
+    .area-title {
+        font-size: 0.95rem;
+    }
+
+    .categoria-title {
+        font-size: 0.875rem;
+    }
+
+    .precio-item {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .info-label,
+    .precio-label {
+        font-size: 0.75rem;
+    }
+
+    .info-value,
+    .precio-value {
+        font-size: 0.875rem;
+    }
+}
+
+/* Móvil pequeño (max-width: 360px) */
+@media screen and (max-width: 360px) {
+    .detail-header h1 {
+        font-size: 1rem;
+    }
+
+    .estado-badge {
+        font-size: 0.625rem;
+    }
+}
