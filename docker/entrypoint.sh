@@ -3,10 +3,16 @@ set -e
 
 echo "🚀 Iniciando configuración de producción..."
 
+# Configurar puerto dinámico para Nginx
+export PORT=${PORT:-8080}
+envsubst '${PORT}' < /etc/nginx/sites-available/default > /tmp/nginx.conf
+mv /tmp/nginx.conf /etc/nginx/sites-available/default
+
 # Esperar a que la base de datos esté disponible
 echo "⏳ Esperando conexión a la base de datos..."
 START_TIME=$(date +%s)
 TIMEOUT=60
+
 while ! php artisan migrate:status 2>/dev/null; do
     echo "⏳ Esperando conexión a BD..."
     sleep 3
@@ -21,10 +27,10 @@ echo "✅ Base de datos conectada exitosamente"
 
 # Limpiar cache antes de empezar
 echo "🧹 Limpiando cache existente..."
-php artisan config:clear
-php artisan route:clear
-php artisan view:clear
-php artisan cache:clear
+php artisan config:clear || true
+php artisan route:clear || true
+php artisan view:clear || true
+php artisan cache:clear || true
 
 # Ejecutar migrate:fresh con seeders (borra todo y recrea limpio)
 echo "🗑️ Eliminando tablas existentes y recreando con seeders..."
@@ -32,7 +38,7 @@ php artisan migrate:fresh --seed --force
 
 # Crear enlace simbólico para storage
 echo "🔗 Creando enlace simbólico para storage..."
-php artisan storage:link
+php artisan storage:link || true
 
 # Optimizaciones para producción
 echo "⚡ Aplicando optimizaciones de producción..."
@@ -55,15 +61,26 @@ while ! nc -z localhost 9000; do
 done
 echo "✅ PHP-FPM está listo"
 
-echo "🚀 Iniciando Nginx..."
+echo "🚀 Iniciando Nginx en puerto ${PORT}..."
 nginx -g "daemon off;" &
 
-# Verificar que Nginx esté escuchando en el puerto correcto
+# Esperar a que Nginx esté escuchando en el puerto correcto
 echo "⏳ Esperando que Nginx esté listo..."
-while ! nc -z localhost ${PORT:-8080}; do
+while ! nc -z localhost ${PORT}; do
   sleep 1
 done
-echo "✅ Nginx está escuchando en puerto ${PORT:-8080}"
+echo "✅ Nginx está escuchando en puerto ${PORT}"
+
+# Verificar que la aplicación responde
+echo "🏥 Verificando health check..."
+sleep 5
+if curl -f http://localhost:${PORT}/health; then
+    echo "✅ Aplicación respondiendo correctamente"
+else
+    echo "⚠️ Health check falló, pero continuando..."
+fi
+
+echo "🎉 Aplicación iniciada exitosamente"
 
 # Mantener el contenedor activo
-tail -f /dev/null
+wait
