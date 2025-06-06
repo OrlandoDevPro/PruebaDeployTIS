@@ -52,10 +52,12 @@ RUN mkdir -p /var/www/storage/framework/{cache,sessions,views} \
     && chmod -R 775 /var/www/storage \
     && chmod -R 775 /var/www/bootstrap/cache
 
+# Copiar configuración de Nginx
+COPY docker/nginx/default.conf /etc/nginx/sites-available/default
+
 # Copiar y hacer ejecutable el entrypoint
 COPY docker/entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
-
 
 # HEALTHCHECK para Railway (AGREGAR AL FINAL)
 HEALTHCHECK --interval=15s --timeout=5s --start-period=60s --retries=3 \
@@ -66,4 +68,4 @@ EXPOSE 8080
 
 # Usar entrypoint personalizado
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
-CMD ["/bin/sh", "-c", "/usr/local/bin/entrypoint.sh"]
+#CMD ["/bin/sh", "-c", "/usr/local/bin/entrypoint.sh"]
